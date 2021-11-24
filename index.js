@@ -1,4 +1,6 @@
+const { json } = require('express');
 const express = require('express');
+const { getAllgames } = require('./db/server');
 const query = require('./db/server')
 
 
@@ -6,9 +8,9 @@ const app = express();
 
 const port = 3000;
 
-app.get("/api/games", async  (_req, resp) =>{
+app.get("/api/games", async (_req, resp) =>{
     console.log("connect");    
-    resp.json(await query.getAllgames);
+    resp.json(await query.getAllgames());
     })
 
 
